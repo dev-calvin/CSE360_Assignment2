@@ -1,10 +1,13 @@
 /**
- * not sure what this class does yet.
+ * <p>
+ * functions like a calculator. Add subtract multiply divide functions available. 
+ * The total can be displayed. history is recorded and can be displayed.
+ * </p>
  *
  * @author Calvin McClure
  * @param Calculator 
- * @return getTotal  returns the total int
- * @return getHistory returns the history string
+ * @return getTotal  returns the total after operations
+ * @return getHistory returns the history string of calculations done
  */
 
 package cse360assign2;
@@ -12,6 +15,7 @@ package cse360assign2;
 public class Calculator {
 
 	private int total;
+	private String history = "0";
 	
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
@@ -23,14 +27,17 @@ public class Calculator {
 	
 	public void add (int value) {
 		total += value;
+		history += " + " + Integer.toString(value);
 	}
 	
 	public void subtract (int value) {
 		total -= value;
+		history += " - " + Integer.toString(value);
 	}
 	
 	public void multiply (int value) {
 		total *= value;
+		history += " * " + Integer.toString(value);
 	}
 	
 	public void divide (int value) {
@@ -39,9 +46,11 @@ public class Calculator {
 		} else {
 			total /= (int)value;
 		}
+		
+		history += " / " + Integer.toString(value);
 	}
 	
 	public String getHistory () {
-		return "";
+		return history;
 	}
 }
